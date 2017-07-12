@@ -1,7 +1,7 @@
 import {div} from '@cycle/dom'
 import xs from 'xstream'
 
-require('./../css/style.css');
+require('./../css/main.scss');
 
 export function App (sources) {
 
