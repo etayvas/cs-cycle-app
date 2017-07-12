@@ -12,6 +12,8 @@
   "dependencies": {
     "@cycle/dom": "^17.6.0",
     "@cycle/run": "^3.1.0",
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
     "xstream": "^10.8.0"
   },
   "scripts": {
