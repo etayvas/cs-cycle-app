@@ -4,17 +4,24 @@ import {div, makeDOMDriver, DOMSource, VNode} from '@cycle/dom'
 
 import  './../css//main.scss'
 
+interface AppSources {
+    dom: DOMSource
+}
 
-function App (sources: any) {
+interface AppSinks {
+    dom: xs<VNode>
+}
+
+function App (sources: AppSources): AppSinks {
 
      const type = "es6"
-     setTimeout(() => alert(`${type} enabled`), 300)
+     setTimeout(() => alert(`${type} enabled!!!`), 300)
 
     const vtree$ = xs.of(
-        div('My Awesome Cycle.js app')
+        div('Cycle.js app')
     )
     const sinks = {
-        DOM: vtree$
+        dom: vtree$
     }
     return sinks
 }
