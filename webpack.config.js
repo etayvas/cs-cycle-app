@@ -7,8 +7,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const config = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        index: './index.js',
-        //index: './index.ts',
+        main: './main.ts',
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -16,7 +15,7 @@ const config = {
         publicPath: '/',
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.js', '.ts'],
         // alias: {
         //     client: path.resolve(__dirname, "src/client"),
         //     view: path.resolve(__dirname, "src/views"),
@@ -33,7 +32,7 @@ const config = {
         loaders: [
             {
                test: /\.tsx?$/,
-               loader: 'ts-loader'
+               loader: 'awesome-typescript-loader'
             },
             {
                 test: /\.js$/,
