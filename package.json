@@ -1,5 +1,5 @@
 {
-  "name": "my-awesome-cycle-app",
+  "name": "base cyclejs template with es6, webpack,sass",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -17,6 +17,8 @@
     "@cycle/run": "^3.1.0",
     "css-loader": "^0.28.4",
     "style-loader": "^0.18.2",
+    "ts-loader": "^2.2.2",
+    "typescript": "^2.4.1",
     "xstream": "^10.8.0"
   },
   "scripts": {

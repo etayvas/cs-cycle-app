@@ -1,7 +1,7 @@
 import {div} from '@cycle/dom'
 import xs from 'xstream'
 
-require('./../css/main.scss');
+import  './../css/main.scss'
 
 export function App (sources) {
 
@@ -9,7 +9,7 @@ export function App (sources) {
     setTimeout(() => alert(`${type} enabled`), 300)
 
     const vtree$ = xs.of(
-        div('My Awesome Cycle.js app')
+        div('CJS app')
     )
     const sinks = {
         DOM: vtree$

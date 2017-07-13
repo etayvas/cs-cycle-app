@@ -1,28 +1,40 @@
 const webpack = require('webpack');
 const path = require('path');
-
-//seperate styles files in PROD only
+//seperate css file
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-// const extractSass = new ExtractTextPlugin({
-//     filename: "[name].[contenthash].css",
-//     disable: process.env.NODE_ENV === "development"
-// });
+
 
 const config = {
     context: path.resolve(__dirname, './src'),
     entry: {
         index: './index.js',
+        //index: './index.ts',
     },
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].bundle.js',
         publicPath: '/',
     },
+    resolve: {
+        extensions: ['.ts', '.js'],
+        // alias: {
+        //     client: path.resolve(__dirname, "src/client"),
+        //     view: path.resolve(__dirname, "src/views"),
+        //     api: path.resolve(__dirname, "src/api"),
+        //     utils: path.resolve(__dirname, "src/utils"),
+        //     class: path.resolve(__dirname, "src/class"),
+        //     interface: path.resolve(__dirname, "src/interfaces")
+        // }
+    },
     devServer: {
         contentBase: path.resolve(__dirname, './src'),
     },
     module: {
         loaders: [
+            {
+               test: /\.tsx?$/,
+               loader: 'ts-loader'
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -33,6 +45,7 @@ const config = {
             },
             {
                 test: /\.scss$/,
+                exclude: /node_modules/,
                 loader: ExtractTextPlugin.extract('css-loader!sass-loader')
             }
         ],
@@ -42,6 +55,5 @@ const config = {
     ],
     watch: true
 };
-
 
 module.exports = config;
