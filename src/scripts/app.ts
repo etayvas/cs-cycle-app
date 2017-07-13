@@ -1,6 +1,6 @@
 import xs from "xstream"
 import {run} from "@cycle/run" //?
-import {div, makeDOMDriver, DOMSource, VNode} from '@cycle/dom'
+import {makeDOMDriver, DOMSource, VNode, div} from '@cycle/dom'
 
 import  './../css//main.scss'
 

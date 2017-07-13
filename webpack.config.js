@@ -3,7 +3,6 @@ const path = require('path');
 //seperate css file
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-
 const config = {
     context: path.resolve(__dirname, './src'),
     entry: {

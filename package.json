@@ -1,5 +1,5 @@
 {
-  "name": "base cyclejs template with es6, webpack,sass",
+  "name": "base cyclejs template with es6, webpack, sass",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {

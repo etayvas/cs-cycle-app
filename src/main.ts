@@ -1,7 +1,9 @@
 import xs, {Stream} from "xstream"
 import {run} from '@cycle/run'
-import {makeDOMDriver,DOMSource, VNode} from '@cycle/dom'
+import {makeDOMDriver,DOMSource, VNode, div} from '@cycle/dom'
 import App from  './scripts/app'
+import Time from  './scripts/time'
+import { person } from "./scripts/person";
 
 namespace Sources {
     export interface dom {
@@ -17,24 +19,34 @@ namespace Sinks {
 interface MainSources extends Sources.dom{}
 
 type MainSinks = {
-       //dom: Stream<VNode>
        dom: xs<VNode>
 }
 
 
 function main (sources: MainSources): MainSinks {
-    const app  = App({dom: sources.dom})
-        , dom$ = app.dom
+
+    console.log(person.firstName + ' ' + person.lastName);
+
+    const app$  = App({dom: sources.dom})
+        , timer$ = Time({dom: sources.dom})
+        //, dom$ = app.dom
             // .mapTo(app.dom)
             // .startWith(app.dom)
             // .flatten()
+            //
+        , dom$ = xs.combine(app$.dom, timer$.dom)
+            .map(([appDom, timerDom]) => {
+                return div(".bla", [
+                      appDom
+                    , timerDom
+                    ])
+                }
+            )
         , sinks = {
                  dom: dom$
           }
     return sinks
 }
-
-//const main2 = App
 
 const drivers = {
   dom: makeDOMDriver('#app')
